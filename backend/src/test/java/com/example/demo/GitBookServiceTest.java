@@ -12,8 +12,10 @@ class GitBookServiceTest {
     void shouldsaveRepoInDB(){
       GitBookRepository gitBookRepository  = Mockito.mock(GitBookRepository.class);
       GitBookService testService = new GitBookService(gitBookRepository);
-      FavoriteDataFromFrontend data = new FavoriteDataFromFrontend("testUser", "testRepoName");
-      testService.saveFavoriteRepo(data);
-      Mockito.verify()
+      FavoriteDataFromFrontend favoriteDataFromFrontend = new FavoriteDataFromFrontend("clarakraus", "partyparty");
+      Owner owner = new Owner(92689668,"clarakraus");
+      GitHubRepo data = new GitHubRepo("493174370","partyparty",owner);
+      testService.saveFavoriteRepo(favoriteDataFromFrontend);
+      Mockito.verify(gitBookRepository).save(data);
     }
 }
