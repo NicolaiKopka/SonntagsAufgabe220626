@@ -1,6 +1,9 @@
 package com.example.demo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface GitBookRepository extends MongoRepository<GitHubRepo, Integer> {
+@Repository
+public interface GitBookRepository extends MongoRepository<GitHubRepo, Long> {
+
 }
